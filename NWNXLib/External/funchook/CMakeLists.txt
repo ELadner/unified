@@ -101,7 +101,7 @@ if (DISASM_CAPSTONE)
   set(CAPSTONE_${FUNCHOOK_CPU_UPPER}_SUPPORT ON CACHE BOOL "")
   add_subdirectory_pic(${CMAKE_CURRENT_BINARY_DIR}/capstone-src ${CMAKE_CURRENT_BINARY_DIR}/capstone-build)
 
-  list(APPEND FUNCHOOK_DEPS capstone-static)
+  list(APPEND FUNCHOOK_DEPS capstone)
   set(DISASM capstone)
 endif ()
 
