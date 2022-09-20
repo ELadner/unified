@@ -126,6 +126,11 @@ NWNXCore::NWNXCore()
     // Initialise export table. New plugin code should endeavour to use direct linking
     // for hook naming, but these might help if you want to target a overloaded function.
     NWNXLib::API::Functions::Initialize();
+    
+    // This is a disgusting amount of cargo-culting: Doing this greatly reduces startup
+    // crashes on linux-aarch64. I have no idea why and I already have too much grey hair, so,
+    // shipping it.
+    usleep(100);
 
     m_createServerHook = Hooks::HookFunction(&CAppManager::CreateServer, &CreateServerHandler);
 }
