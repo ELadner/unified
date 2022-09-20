@@ -54,6 +54,10 @@ endif()
 
 set(NWNX_STANDARD_FLAGS "-fdiagnostics-show-option -fno-omit-frame-pointer -fPIC -fno-strict-aliasing")
 
+if ("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+    set(NWNX_STANDARD_FLAGS "${NWNX_STANDARD_FLAGS} -fstack-protector-all")
+endif()
+
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${NWNX_STANDARD_FLAGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${NWNX_STANDARD_FLAGS} ${WARNING_FLAGS_CXX} -std=c++17")
 
